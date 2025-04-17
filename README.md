@@ -68,6 +68,44 @@ Accurate sales forecasting is crucial for retailers to optimize inventory manage
 
 ## Modeling
 
+### Model Selection  
+We use a **Random Forest Regressor** because it:  
+- Handles both numerical and categorical features without extensive preprocessing  
+- Is robust to outliers (builds many decision trees rather than fitting exact points)  
+
+### Feature Selection  
+Based on correlation analysis and domain knowledge, we keep the following predictors:  
+- `DayOfWeek`  
+- `CompetitionDistance`  
+- `competition_duration`  
+- `StateHoliday`  
+- `Promo`  
+- `StoreType`  
+- `Assortment`  
+
+### Train–Validation Split  
+- **Training set:** 80% of the merged data  
+- **Validation set:** 20% of the merged data  
+- **Random state:** 42 (for reproducibility)  
+
+### Model Evaluation
+We evaluated two different approaches for forecasting sales:
+
+1. **Validation RMSE:**  
+   This metric indicates the average error between the predicted sales and the actual sales in the validation set.
+   A lower RMSE signifies better model performance, meaning the model's predictions are closer to the actual values
+   
+2. **Validation Accuracy (R² Score):**  
+   The R² score represents the proportion of variance in sales explained by the model.
+   A high R² score demonstrates that the model effectively captures the key patterns and relationships in the data, making it suitable for sales forecasting
+   
+### Test Predictions  
+After training, we apply the model to the test set (with the same feature set) to generate six weeks of daily sales forecasts.
+
+---
+
+## Results & Evaluation
+
 We evaluated two different approaches for forecasting sales:
 
 1. **Direct Sales Prediction**  
@@ -84,19 +122,7 @@ We evaluated two different approaches for forecasting sales:
       - Validation RMSE: 576.73  
       - Validation R²: 0.9655
 
----
-
-## Results & Evaluation
-
-- **Validation (Sales)**  
-  - RMSE: 1,446.23  
-  - R²: 88.31%  
-- **Feature Importance**  
-  1. Competition Distance (0.52)  
-  2. Promo (0.17)  
-  3. Promo Years (0.09)  
-
-The model effectively captures key drivers—competition proximity and promotional activity—and delivers accurate six-week sales forecasts.
+The model effectively captures key drivers and delivers accurate six-week sales forecasts.
 
 ---
 
@@ -104,10 +130,10 @@ The model effectively captures key drivers—competition proximity and promotion
 
 | Path                                  | Description                                  |
 |---------------------------------------|----------------------------------------------|
-| `README.md`                           | Main project overview and instructions       |
+| `README.md`                           | Main project overview                        |
 | `Project_File.ipynb`                  | Original analysis & modeling notebook        |
-| `Dataset.zip/`                            | Directory containing data files              |
-| `data/store.csv`                      | Store metadata                               |
+| `Dataset.zip/`                        | Directory containing data files              |
+| `data/store.csv`                      | Store data                                   |
 | `data/train.csv`                      | Historical sales training data               |
 | `data/test.csv`                       | Future dates (test) dataset                  |
 
