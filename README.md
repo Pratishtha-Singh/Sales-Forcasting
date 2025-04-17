@@ -106,7 +106,7 @@ The model effectively captures key drivers—competition proximity and promotion
 |---------------------------------------|----------------------------------------------|
 | `README.md`                           | Main project overview and instructions       |
 | `Project_File.ipynb`                  | Original analysis & modeling notebook        |
-| `dataset/`                            | Directory containing data files              |
+| `Dataset.zip/`                            | Directory containing data files              |
 | `data/store.csv`                      | Store metadata                               |
 | `data/train.csv`                      | Historical sales training data               |
 | `data/test.csv`                       | Future dates (test) dataset                  |
