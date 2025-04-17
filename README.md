@@ -63,6 +63,9 @@ Accurate sales forecasting is crucial for retailers to optimize inventory manage
   - Compared sales by store type and assortment categories.  
 - **Correlation Analysis**  
   - Highest correlations: Customers (`0.82`), Promo (`0.37`) and DayOfWeek (`‑0.18`).
+ 
+You can browse all of the key EDA charts here:
+[Visualizations.pdf](Visualizations.pdf)
 
 ---
 
